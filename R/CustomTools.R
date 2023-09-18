@@ -9,3 +9,12 @@ ViewExcel <- function(df = .Last.value, file = tempfile(fileext = ".csv")) {
   utils::write.csv(df, file = file)
   base::shell.exec(file)
 }
+
+#' Provides a janitor distribution table but with formatting and ordering by default
+#' @export
+f_tbyl <- function(data, vbl){
+  data %>%
+    tabyl({{vbl}}) %>%
+    adorn_pct_formatting() %>%
+    arrange(desc(n))
+}
