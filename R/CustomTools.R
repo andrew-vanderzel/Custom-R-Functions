@@ -15,10 +15,11 @@ ViewExcel <- function(df = .Last.value, file = tempfile(fileext = ".csv")) {
 f_tbyl <- function(data, vbl){
   library(dplyr)
   library(janitor)
+  library(magrittr)
   data %>%
-    tabyl({{vbl}}) %>%
-    adorn_pct_formatting() %>%
-    arrange(desc(n))
+    janitor::tabyl({{vbl}}) %>%
+    jantior::adorn_pct_formatting() %>%
+    dplyr::arrange(dplyr::desc(n))
 }
 
 #' Function to import github package with updated download setting
