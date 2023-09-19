@@ -33,6 +33,8 @@ import_github <- function(path){
 #' @export
 import_excel <- function(path, password = "NONE", sheet = "NONE", skip = 0){
 
+  library(excel.link)
+  library(readxl)
   if(password != "NONE"){
 
     if(sheet != "NONE"){
