@@ -28,3 +28,28 @@ import_github <- function(path){
   options(download.file.method = "wininet")
   devtools::install_github(path)
 }
+
+#' Function to provide flexibility in import excel files
+#' @export
+import_excel <- function(path, password = "NONE", sheet = "NONE", skip = 0){
+
+  if(password != "NONE"){
+
+    if(sheet != "NONE"){
+      f <- excel.link::xl.read.file(path, password = password, xl.sheet = sheet)
+      return(f)
+    }else{
+      f <- excel.link::xl.read.file(path, password = password)
+      return(f)
+    }
+
+  }else{
+    if(sheet != "NONE"){
+      f <- readxl::read_excel(path, sheet=sheet, skip = skip)
+      return(f)
+    }else{
+      f <- readxl::read_excel(path, skip = skip)
+      return(f)
+    }
+  }
+}

@@ -2,4 +2,5 @@
 
 export(ViewExcel)
 export(f_tbyl)
+export(import_excel)
 export(import_github)
