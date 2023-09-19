@@ -18,7 +18,7 @@ f_tbyl <- function(data, vbl){
   library(magrittr)
   data %>%
     janitor::tabyl({{vbl}}) %>%
-    jantior::adorn_pct_formatting() %>%
+    janitor::adorn_pct_formatting() %>%
     dplyr::arrange(dplyr::desc(n))
 }
 
