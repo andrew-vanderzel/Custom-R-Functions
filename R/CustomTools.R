@@ -6,7 +6,7 @@
 ViewExcel <- function(df = .Last.value, file = tempfile(fileext = ".csv")) {
   df <- try(as.data.frame(df))
   stopifnot(is.data.frame(df))
-  utils::write.csv(df, file = file)
+  utils::write.csv(df, file = file, na = NA)
   base::shell.exec(file)
 }
 
